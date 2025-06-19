@@ -1,0 +1,14 @@
+Purpose:
+Manages the connection between the laptop and the Pi, handles sending/receiving data.
+
+Tasks:
+1. Decide protocol: sockets (recommended) or Flask + HTTP
+2. Set up connect_to_robot(host, port) function
+3. Implement send_data(data) function to send movement/audio/video commands
+4. (Optional) Implement receive_data() for acknowledgements/status
+5. Handle reconnection logic if connection drops
+6. Add config constants (e.g., default IP and port)
+
+📦 Libraries:
+If sockets: socket, json
+If REST: requests (on laptop) / flask (on Pi)

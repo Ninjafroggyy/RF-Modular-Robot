@@ -1,0 +1,13 @@
+Purpose:
+Handle movement commands from the GUI and send them to the robot (via network.py).
+
+Tasks:
+1. Define allowed movement commands (forward, backward, left, right, stop)
+2. Create function send_movement_command(direction) that:
+    - Validates direction
+    - Formats it (e.g., JSON or plain string)
+    - Sends it via network.send_data(...)
+3. Add safety wrapper (e.g., ignore commands if not connected)
+
+Libraries:
+None directly (depends on network.py for comms)

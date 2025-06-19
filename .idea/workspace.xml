@@ -1,29 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb8ba4c3-9e85-4316-9e2c-543994bce628" name="Changes" comment="" />
+    <list default="true" id="eb8ba4c3-9e85-4316-9e2c-543994bce628" name="Changes" comment="requirements.txt file added">
+      <change afterPath="$PROJECT_DIR$/backend/camera_control/TODO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/camera_control/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/camera_control/camera.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/movement_control/TODO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/movement_control/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/movement_control/movement.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/network_communication/TODO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/network_communication/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/network_communication/network.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datalayer/TODO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/TODO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/delete.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/audio_output/TODO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalayer/delete.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/audio_output/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/delete.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/audio_output/audio.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Ninjafroggyy"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Ninjafroggyy/RF-Modular-Robot",
+    "accountId": "d6913fae-2281-4d12-970f-6c95654b616d"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 0
 }]]></component>
   <component name="ProjectId" id="2yint4cR85PVorZXwVrVGP11MnC" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.gui.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "emma__code",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -43,8 +97,67 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1750326473050</updated>
-      <workItem from="1750326474095" duration="7000" />
+      <workItem from="1750326474095" duration="10217000" />
     </task>
+    <task id="LOCAL-00001" summary="Added base folders">
+      <option name="closed" value="true" />
+      <created>1750326633612</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1750326633612</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added base folders">
+      <option name="closed" value="true" />
+      <created>1750327103461</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1750327103461</updated>
+    </task>
+    <task id="LOCAL-00003" summary="requirements.txt file added">
+      <option name="closed" value="true" />
+      <created>1750328880393</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1750328880393</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="emma_code" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added base folders" />
+    <MESSAGE value="requirements.txt file added" />
+    <option name="LAST_COMMIT_MESSAGE" value="requirements.txt file added" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/RF_Modular_Robot$gui.coverage" NAME="gui Coverage Results" MODIFIED="1750333089256" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frontend" />
   </component>
 </project>
