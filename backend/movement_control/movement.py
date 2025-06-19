@@ -2,7 +2,7 @@
     Handles robot movement commands and sends them to the robot via network.
 """
 
-from backend import network_communication
+from backend.network_communication import network
 
 
 ALLOWED_DIRECTIONS = ["forward", "backward", "left", "right", "stop"]
@@ -20,4 +20,4 @@ def send_movement_command(direction: str):
         return
 
     command = {"type": "movement", "direction": direction}
-    network_communication.send_data(command)
+    network.send_data(command)
