@@ -30,20 +30,34 @@ Designed and built by a team of three, this sprint-led build is intended as both
 ```bash
 RF_Modular_Robot/
 │
-├── backend/ # Logic for robot control, network, audio/video
-│ ├── movement.py
-│ ├── network.py
-│ ├── camera.py
-│ └── audio.py
+├── backend/
+│     ├── audio_output/
+│     │     ├── audio.py
+│     │     ├── audio_mock_data.py
+│     │     └── test_assets/
+│     │           └── test_audio.wav
+│     │
+│     ├── camera_control/
+│     │     ├── camera.py
+│     │     ├── camera_mock_data.py
+│     │     └── test_assets/
+│     │           └── test_frame.jpg
+│     │
+│     ├── movement_control/
+│     │     ├── movement.py
+│     │     └── movement_mock_data.py
+│     │
+│     └── network_communication/
+│           └── network.py
 │
-├── frontend/ # Pygame-based GUI interface
-│ └── app.py
+├── frontend/
+│     └── app.py
 │
-├── tests/ # Unit tests using Python's unittest module
-│ ├── test_movement.py
-│ ├── test_network.py
-│ ├── test_camera.py
-│ └── test_audio.py
+├── tests/
+│     ├── test_audio.py
+│     ├── test_camera.py
+│     ├── test_movement.py
+│     └── test_network.py
 │
 ├── main.py # Entry point – launches GUI
 └── requirements.txt
@@ -77,7 +91,8 @@ python -m unittest discover -s tests
 - **Test-driven development** (mocking, assertions)
 - **Real-time system interaction and debugging**
 
-## 📅 Sprint Scope
+
+## Sprint Scope
 
 This is a **5-day sprint project**, with a hard deadline.
 
