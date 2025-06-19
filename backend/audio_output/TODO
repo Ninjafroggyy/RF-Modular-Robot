@@ -1,0 +1,16 @@
+Purpose:
+Handles receiving audio data (microphone from Pi) and playing it back on the laptop.
+
+Tasks:
+1. Choose audio transport method (socket or stream via HTTP/GStreamer)
+2. Implement start_audio_stream() and stop_audio_stream()
+3. Implement stream handler that decodes and plays audio in real time
+4. Add volume/mute control
+5. Buffering for lag handling (optional)
+
+📦 Libraries:
+sounddevice (for simple playback)
+pyaudio (alternative)
+numpy (for audio buffer manipulation)
+(Optional) wave or io if testing with files first
+

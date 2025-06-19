@@ -1,0 +1,13 @@
+Purpose:
+Handles receiving video stream from Pi and providing frames to frontend.
+
+Tasks:
+1. Decide streaming method (likely MJPEG over HTTP or raw frames over socket)
+2. Implement start_video_stream() and stop_video_stream()
+3. Provide get_current_frame() for GUI to display (as pygame surface or numpy image)
+4. Add connection status flag and error handling
+
+📦 Libraries:
+opencv-python (cv2) — for frame decoding
+numpy
+Possibly requests or urllib if using HTTP-based stream
