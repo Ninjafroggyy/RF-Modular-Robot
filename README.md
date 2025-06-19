@@ -27,6 +27,7 @@ Designed and built by a team of three, this sprint-led build is intended as both
 
 ## Repository Structure
 
+```bash
 RF_Modular_Robot/
 │
 ├── backend/ # Logic for robot control, network, audio/video
@@ -47,6 +48,7 @@ RF_Modular_Robot/
 ├── main.py # Entry point – launches GUI
 └── requirements.txt
 
+```
 
 ---
 
