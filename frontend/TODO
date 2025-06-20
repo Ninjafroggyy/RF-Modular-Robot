@@ -1,0 +1,39 @@
+1. run_gui()
+The main loop that initialises everything and starts the app
+Manages window events and screen redraws
+
+2. handle_keydown(event)
+Responds to directional input
+Calls backend functions (e.g., send_command("forward"))
+Updates internal GUI state
+
+3. handle_mouse(event)
+(Optional) If adding on-screen buttons, handle clicks here
+Could be split into handle_mouse_down() and handle_mouse_up() if needed
+
+4. draw_ui_elements(screen)
+Handles all drawing (buttons, labels, camera feed placeholder, etc.)
+Keeps main loop clean
+Updates visuals based on internal state (e.g. camera active, mic muted)
+
+5. update_status_display(status)
+Updates any indicators on screen (e.g., “Camera Connected” or “Audio: Live”)
+Can be called from network or stream modules
+
+6. init_gui_state()
+Initialises any variables that store GUI state
+Active direction
+Module status (camera/audio)
+Colours, visibility flags, etc.
+
+7. load_assets() (optional)
+Pre-load images, icons, fonts, etc.
+Prevents repeated disk access in the loop
+
+Bonus (For Real-Time Elements)
+8. update_video_frame(frame)
+Called externally (e.g., from a streaming thread)
+Stores the latest frame to be drawn in draw_ui_elements()
+
+9. play_audio_stream(audio_data)
+Accepts raw audio data and sends it to speaker (used if stream Pi mic input)
