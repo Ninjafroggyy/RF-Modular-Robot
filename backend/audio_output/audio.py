@@ -29,3 +29,4 @@ def play_audio_data(audio_data):
         sd.play(audio_data, samplerate=AUDIO_SAMPLE_RATE)
     except Exception as e:
         print(f"[ERROR] Could not play audio: {e}")
+    amina
