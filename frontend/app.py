@@ -6,7 +6,7 @@ from backend.network_communication.network import connect_to_robot, send_data
 
 # ── Pygame setup ────────────────────────────────────────────────────────────────
 pygame.init()
-WIDTH, HEIGHT = 1600, 1000
+WIDTH, HEIGHT = 1400, 800
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Robot Control Interface")
 clock = pygame.time.Clock()          # controls the frame-rate
@@ -47,7 +47,7 @@ def run_gui() -> None:
     """Main loop for the robot-control GUI with continuous motion."""
     global circle_x, circle_y, current_circle_colour
 
-    #connect_to_robot()  # attempt connection once at start
+    connect_to_robot()  # attempt connection once at start
     running = True
     while running:
         # ── Event handling ────────────────────────────────────────────────────
@@ -59,15 +59,15 @@ def run_gui() -> None:
                 if event.key in ARROWS:
                     direction, colour, _ = ARROWS[event.key]
                     current_circle_colour = colour
-                   # send_move(direction)           # <─ NEW
+                    send_move(direction)           # <─ NEW
                 elif event.key == pygame.K_SPACE:
                     current_circle_colour = DEFAULT_CIRCLE_COLOUR
-                   # send_stop()                    # <─ NEW
+                    send_stop()                    # <─ NEW
 
             elif event.type == pygame.KEYUP:
                 if event.key in ARROWS:
-                    pass
-                   # send_stop()                    # stop when arrow released
+                    current_circle_colour = DEFAULT_CIRCLE_COLOUR
+                    send_stop()                    # stop when arrow released
 
         # ── Continuous movement of the on-screen dot ─────────────────────────
         keys = pygame.key.get_pressed()
