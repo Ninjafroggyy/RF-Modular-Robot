@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb8ba4c3-9e85-4316-9e2c-543994bce628" name="Changes" comment="Added testing files">
+    <list default="true" id="eb8ba4c3-9e85-4316-9e2c-543994bce628" name="Changes" comment="Adding network and gui changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/movement_control/movement.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/movement_control/movement.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/movement_control/movement_mock_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/movement_control/movement_mock_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/network_communication/network.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/network_communication/network.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/tests_movement.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/tests_movement.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +59,7 @@
     "Python tests.Python tests in tests_movement.py.executor": "Run",
     "Python.app.executor": "Run",
     "Python.gui.executor": "Run",
+    "Python.movement_mock_data.executor": "Run",
     "Python.network.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -80,7 +82,7 @@
       <recent name="C:\Users\ISA06016798\PycharmProjects\RF_Modular_Robot\backend\camera_control\test_assets" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.app">
+  <component name="RunManager" selected="Python.network">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="RF_Modular_Robot" />
       <option name="ENV_FILES" value="" />
@@ -145,8 +147,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.app" />
         <item itemvalue="Python.network" />
+        <item itemvalue="Python.app" />
         <item itemvalue="Python tests.Python tests in tests_movement.py" />
       </list>
     </recent_temporary>
@@ -168,7 +170,7 @@
       <option name="presentableId" value="Default" />
       <updated>1750326473050</updated>
       <workItem from="1750326474095" duration="18981000" />
-      <workItem from="1750751088564" duration="6628000" />
+      <workItem from="1750751088564" duration="11812000" />
     </task>
     <task id="LOCAL-00001" summary="Added base folders">
       <option name="closed" value="true" />
@@ -226,7 +228,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750418835674</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Adding network and gui changes">
+      <option name="closed" value="true" />
+      <created>1750767234795</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1750767234795</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,12 +270,14 @@
     <MESSAGE value="requirements.txt file added" />
     <MESSAGE value="Added testing files &amp; tasking files" />
     <MESSAGE value="Added testing files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added testing files" />
+    <MESSAGE value="Adding network and gui changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding network and gui changes" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/RF_Modular_Robot$movement_mock_data.coverage" NAME="movement_mock_data Coverage Results" MODIFIED="1750770130085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/movement_control" />
     <SUITE FILE_PATH="coverage/RF_Modular_Robot$gui.coverage" NAME="gui Coverage Results" MODIFIED="1750333089256" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frontend" />
     <SUITE FILE_PATH="coverage/RF_Modular_Robot$.coverage" NAME=" Coverage Results" MODIFIED="1750341109350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/RF_Modular_Robot$network.coverage" NAME="network Coverage Results" MODIFIED="1750763148355" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/network_communication" />
+    <SUITE FILE_PATH="coverage/RF_Modular_Robot$network.coverage" NAME="network Coverage Results" MODIFIED="1750771516314" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/network_communication" />
     <SUITE FILE_PATH="coverage/RF_Modular_Robot$app.coverage" NAME="app Coverage Results" MODIFIED="1750765771903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frontend" />
   </component>
 </project>

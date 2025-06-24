@@ -6,8 +6,8 @@ import json
 import time
 
 # ─── Config Constants ─────────────────────────────────────────────
-DEFAULT_HOST = "10.15.239.187"  # Replace with your Pi’s IP address
-DEFAULT_PORT = 5005
+DEFAULT_HOST = "10.15.239.187"  # Replace with Pi’s IP address
+DEFAULT_PORT = 5000
 RECONNECT_DELAY = 3  # seconds
 
 # ─── Connection State ─────────────────────────────────────────────
