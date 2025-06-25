@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb8ba4c3-9e85-4316-9e2c-543994bce628" name="Changes" comment="Adding network and gui changes">
+      <change afterPath="$PROJECT_DIR$/pi_code/README" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/movement_control/movement.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/movement_control/movement.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/movement_control/movement_mock_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/movement_control/movement_mock_data.py" afterDir="false" />
@@ -54,26 +55,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python tests.Python tests in tests_movement.py.executor": "Run",
-    "Python.app.executor": "Run",
-    "Python.gui.executor": "Run",
-    "Python.movement_mock_data.executor": "Run",
-    "Python.network.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "emma__code",
-    "last_opened_file_path": "C:/Users/ISA06016798/PycharmProjects/RF_Modular_Robot/backend/audio_output/test_assets",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python tests.Python tests in tests_movement.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;Python.gui.executor&quot;: &quot;Run&quot;,
+    &quot;Python.movement_mock_data.executor&quot;: &quot;Run&quot;,
+    &quot;Python.network.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;emma__code&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ISA06016798/PycharmProjects/RF_Modular_Robot/backend/audio_output/test_assets&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ISA06016798\PycharmProjects\RF_Modular_Robot\backend\audio_output\test_assets" />
@@ -170,7 +171,8 @@
       <option name="presentableId" value="Default" />
       <updated>1750326473050</updated>
       <workItem from="1750326474095" duration="18981000" />
-      <workItem from="1750751088564" duration="11812000" />
+      <workItem from="1750751088564" duration="13279000" />
+      <workItem from="1750877658236" duration="1359000" />
     </task>
     <task id="LOCAL-00001" summary="Added base folders">
       <option name="closed" value="true" />
@@ -236,7 +238,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750767234795</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Adding network and gui changes">
+      <option name="closed" value="true" />
+      <created>1750773175973</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1750773175973</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
