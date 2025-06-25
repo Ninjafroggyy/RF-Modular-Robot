@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb8ba4c3-9e85-4316-9e2c-543994bce628" name="Changes" comment="Added testing files &amp; tasking files" />
+    <list default="true" id="eb8ba4c3-9e85-4316-9e2c-543994bce628" name="Changes" comment="Adding network and gui changes">
+      <change afterPath="$PROJECT_DIR$/pi_code/README" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/movement_control/movement.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/movement_control/movement.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/movement_control/movement_mock_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/movement_control/movement_mock_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/network_communication/network.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/network_communication/network.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app.py" afterDir="false" />
+    </list>
+
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,12 +39,12 @@
     &quot;assignee&quot;: &quot;Ninjafroggyy&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Ninjafroggyy/RF-Modular-Robot.git",
-    "accountId": "a18a2042-0049-481c-96c0-a84b4a4c5740"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Ninjafroggyy/RF-Modular-Robot&quot;,
+    &quot;accountId&quot;: &quot;d6913fae-2281-4d12-970f-6c95654b616d&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -48,23 +56,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python tests.Python tests in tests_movement.py.executor": "Run",
-    "Python.gui.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "sarah__code",
-    "last_opened_file_path": "C:/Users/butle/OneDrive/Documents/GitHub/RF-Modular-Robot",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python tests.Python tests in tests_movement.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;Python.gui.executor&quot;: &quot;Run&quot;,
+    &quot;Python.movement_mock_data.executor&quot;: &quot;Run&quot;,
+    &quot;Python.network.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;emma__code&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ISA06016798/PycharmProjects/RF_Modular_Robot/backend/audio_output/test_assets&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ISA06016798\PycharmProjects\RF_Modular_Robot\backend\audio_output\test_assets" />
@@ -73,7 +84,53 @@
       <recent name="C:\Users\ISA06016798\PycharmProjects\RF_Modular_Robot\backend\camera_control\test_assets" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.network">
+    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="RF_Modular_Robot" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/frontend" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/frontend/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="network" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="RF_Modular_Robot" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/network_communication" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/network_communication/network.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Python tests in tests_movement.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="RF_Modular_Robot" />
       <option name="ENV_FILES" value="" />
@@ -92,6 +149,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.network" />
+        <item itemvalue="Python.app" />
         <item itemvalue="Python tests.Python tests in tests_movement.py" />
       </list>
     </recent_temporary>
@@ -112,8 +171,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1750326473050</updated>
-      <workItem from="1750326474095" duration="11721000" />
-      <workItem from="1750422342409" duration="92000" />
+      <workItem from="1750326474095" duration="18981000" />
+      <workItem from="1750751088564" duration="13279000" />
+      <workItem from="1750877658236" duration="1359000" />
     </task>
     <task id="LOCAL-00001" summary="Added base folders">
       <option name="closed" value="true" />
@@ -147,7 +207,47 @@
       <option name="project" value="LOCAL" />
       <updated>1750339790299</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added testing files">
+      <option name="closed" value="true" />
+      <created>1750341293823</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1750341293823</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added testing files">
+      <option name="closed" value="true" />
+      <created>1750342780468</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1750342780468</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added testing files">
+      <option name="closed" value="true" />
+      <created>1750418835674</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1750418835674</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Adding network and gui changes">
+      <option name="closed" value="true" />
+      <created>1750767234795</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1750767234795</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Adding network and gui changes">
+      <option name="closed" value="true" />
+      <created>1750773175973</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1750773175973</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,10 +280,15 @@
     <MESSAGE value="Added base folders" />
     <MESSAGE value="requirements.txt file added" />
     <MESSAGE value="Added testing files &amp; tasking files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added testing files &amp; tasking files" />
+    <MESSAGE value="Added testing files" />
+    <MESSAGE value="Adding network and gui changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding network and gui changes" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/RF_Modular_Robot$movement_mock_data.coverage" NAME="movement_mock_data Coverage Results" MODIFIED="1750770130085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/movement_control" />
     <SUITE FILE_PATH="coverage/RF_Modular_Robot$gui.coverage" NAME="gui Coverage Results" MODIFIED="1750333089256" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frontend" />
     <SUITE FILE_PATH="coverage/RF_Modular_Robot$.coverage" NAME=" Coverage Results" MODIFIED="1750341109350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/RF_Modular_Robot$network.coverage" NAME="network Coverage Results" MODIFIED="1750771516314" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/network_communication" />
+    <SUITE FILE_PATH="coverage/RF_Modular_Robot$app.coverage" NAME="app Coverage Results" MODIFIED="1750765771903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frontend" />
   </component>
 </project>
