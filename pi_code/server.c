@@ -61,8 +61,6 @@ int main() {
 
         printf("[Data] Received: %s\n", buffer);
 
-        // Here you can add logic:
-        // if (strcmp(buffer, "MOVE_FORWARD") == 0) { move_forward(); }
     }
 
     close(client_fd);
