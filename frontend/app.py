@@ -1,92 +1,90 @@
-import pygame
 import sys
+import threading
 
-from backend.network_communication.network import connect_to_robot, send_data
+import pygame
 
+from backend.network_communication import network
+from backend.audio_output.audio import AudioReceiver
+from backend.camera_control.camera import camera_stream_loop, get_latest
 
-# ── Pygame setup ────────────────────────────────────────────────────────────────
+# ── Pygame setup ─────────────────────────────────────
 pygame.init()
 WIDTH, HEIGHT = 1400, 800
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Robot Control Interface")
-clock = pygame.time.Clock()          # controls the frame-rate
+clock = pygame.time.Clock()
 
-# ── Colours ─────────────────────────────────────────────────────────────────────
+# ── Colours ──────────────────────────────────────────
 GREY   = (30, 30, 30)
 RED    = (200, 0, 0)
 YELLOW = (255, 215, 0)
 GREEN  = (0, 200, 0)
 BLUE   = (30, 144, 255)
-DEFAULT_CIRCLE_COLOUR = (100, 100, 100)
+DEFAULT = (100, 100, 100)
 
-# ── Circle state ────────────────────────────────────────────────────────────────
-CIRCLE_RADIUS = 50
-circle_x, circle_y = WIDTH // 2, HEIGHT // 2
-current_circle_colour = DEFAULT_CIRCLE_COLOUR
-MOVE_SPEED = 1                       # pixels per frame
+# ── Circle state ─────────────────────────────────────
+RADIUS = 50
+x, y   = WIDTH // 2, HEIGHT // 2
+colour = DEFAULT
+SPEED  = 1
 
 ARROWS = {
-    pygame.K_UP:    ("FORWARD", RED,    (0, -MOVE_SPEED)),
-    pygame.K_DOWN:  ("BACKWARD", YELLOW,(0,  MOVE_SPEED)),
-    pygame.K_LEFT:  ("LEFT",    BLUE,   (-MOVE_SPEED, 0)),
-    pygame.K_RIGHT: ("RIGHT",   GREEN,  ( MOVE_SPEED, 0)),
+    pygame.K_UP:    ("forward",  RED,    (0, -SPEED)),
+    pygame.K_DOWN:  ("backward", YELLOW, (0,  SPEED)),
+    pygame.K_LEFT:  ("left",     BLUE,   (-SPEED, 0)),
+    pygame.K_RIGHT: ("right",    GREEN,  ( SPEED, 0)),
 }
 
 
-def send_move(direction: str):
-    """Fire a MOVE command to the Pi."""
-    send_data({"command": "MOVE", "direction": direction})
-
-
-def send_stop():
-    """Tell the robot to stop moving."""
-    send_data({"command": "STOP"})
-
-
 def run_gui() -> None:
-    """Main loop for the robot-control GUI with continuous motion."""
-    global circle_x, circle_y, current_circle_colour
+    global x, y, colour
 
-    connect_to_robot()  # attempt connection once at start
+    network.connect()
+
+    # Start backend streams
+    audio = AudioReceiver()
+    audio.start()
+    threading.Thread(target=camera_stream_loop, daemon=True).start()
+
     running = True
     while running:
-        # ── Event handling ────────────────────────────────────────────────────
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-
             elif event.type == pygame.KEYDOWN:
                 if event.key in ARROWS:
-                    direction, colour, _ = ARROWS[event.key]
-                    current_circle_colour = colour
-                    send_move(direction)           # <─ NEW
+                    dir_, colour, _ = ARROWS[event.key]
+                    network.send({"type": "movement", "direction": dir_})
                 elif event.key == pygame.K_SPACE:
-                    current_circle_colour = DEFAULT_CIRCLE_COLOUR
-                    send_stop()                    # <─ NEW
-
+                    network.send({"type": "movement", "direction": "stop"})
             elif event.type == pygame.KEYUP:
                 if event.key in ARROWS:
-                    current_circle_colour = DEFAULT_CIRCLE_COLOUR
-                    send_stop()                    # stop when arrow released
+                    network.send({"type": "movement", "direction": "stop"})
 
-        # ── Continuous movement of the on-screen dot ─────────────────────────
+        # continuous local circle update
         keys = pygame.key.get_pressed()
         for key, (_, _, delta) in ARROWS.items():
             if keys[key]:
                 dx, dy = delta
-                circle_x = max(CIRCLE_RADIUS, min(WIDTH  - CIRCLE_RADIUS, circle_x + dx))
-                circle_y = max(CIRCLE_RADIUS, min(HEIGHT - CIRCLE_RADIUS, circle_y + dy))
+                x = max(RADIUS, min(WIDTH  - RADIUS, x + dx))
+                y = max(RADIUS, min(HEIGHT - RADIUS, y + dy))
 
-        # ── Drawing ───────────────────────────────────────────────────────────
+        # ── Drawing ───────────────────────────────────
         screen.fill(GREY)
-        pygame.draw.circle(screen, current_circle_colour,
-                           (circle_x, circle_y), CIRCLE_RADIUS)
+
+        # Camera
+        frame = get_latest()
+        if frame:
+            rgb, (w, h) = frame
+            surf = pygame.image.frombuffer(rgb, (w, h), "RGB")
+            screen.blit(surf, (20, 20))
+
+        # Circle
+        pygame.draw.circle(screen, colour, (x, y), RADIUS)
         pygame.display.flip()
-        clock.tick(120)            # smooth 120 FPS
+        clock.tick(120)
 
     pygame.quit()
+    audio.stop()
+    network.disconnect()
     sys.exit()
-
-
-if __name__ == "__main__":
-    run_gui()

@@ -1,24 +1,14 @@
 """
-    Handles robot movement commands and sends them to the robot via network.
+Thin convenience wrapper for movement commands.
+Frontend already calls network.send() directly, but this can be reused in tests.
 """
-from numpy.distutils.exec_command import forward_bytes_to_stdout
-
 from backend.network_communication import network
 
+ALLOWED = {"forward", "backward", "left", "right", "stop"}
 
-ALLOWED_DIRECTIONS = ["forward", "backward", "left", "right", "stop"]
 
-
-def send_movement_command(direction: str):
-    """
-        Send a movement command to the robot.
-
-    Args:
-        direction (str): One of 'forward', 'backward', 'left', 'right', 'stop'
-    """
-    if direction not in ALLOWED_DIRECTIONS:
-        print(f"[WARN] Invalid direction: {direction}")
+def move(direction: str) -> None:
+    if direction not in ALLOWED:
+        print(f"[WARN] Invalid move: {direction}")
         return
-
-    command = {"type": "movement", "direction": direction}
-    network.send_data(command)
+    network.send({"type": "movement", "direction": direction})
