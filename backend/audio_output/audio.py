@@ -1,31 +1,36 @@
-""" Handles audio stream playback from the Pi microphone. """
+import socket
+import pyaudio
 
-import sounddevice as sd
-import numpy as np
+def audio_stream_loop():
+    CHUNK = 1024
+    FORMAT = pyaudio.paInt16
+    CHANNELS = 2
+    RATE = 44100
 
+    HOST = '192.168.77.2'
+    #HOST = '10.15.224.11'
+    PORT = 5000
 
-stream = None
-AUDIO_SAMPLE_RATE = 44100  # Typical sample rate
+    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    client_socket.connect((HOST, PORT))
 
+    p = pyaudio.PyAudio()
+    stream = p.open(format=FORMAT,
+                    channels=CHANNELS,
+                    rate=RATE,
+                    output=True,
+                    frames_per_buffer=CHUNK)
 
-def start_audio_stream():
-    """ Start audio streaming from the Pi. """
-    # This would be replaced by actual stream receiving from the Pi
-    print("[INFO] Starting audio stream (not implemented yet).")
-
-
-def stop_audio_stream():
-    """ Stop audio streaming. """
-    print("[INFO] Stopping audio stream.")
-
-
-def play_audio_data(audio_data):
-    """
-    Play raw audio data received from the Pi.
-    Args:
-        audio_data (np.ndarray): PCM audio buffer
-    """
     try:
-        sd.play(audio_data, samplerate=AUDIO_SAMPLE_RATE)
+        while True:
+            data = client_socket.recv(CHUNK)
+            if not data:
+                break
+            stream.write(data)
     except Exception as e:
-        print(f"[ERROR] Could not play audio: {e}")
+        print("[Audio Stream Error]:", e)
+    finally:
+        stream.stop_stream()
+        stream.close()
+        p.terminate()
+        client_socket.close()
