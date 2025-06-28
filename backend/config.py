@@ -1,9 +1,21 @@
 """
-Central network configuration shared by all backend modules.
-Edit here only; every other file simply does `from backend.config import HOST, *`.
+config.py — Central Network Configuration for Backend Modules
+
+Defines the Raspberry Pi IP address and the ports used for each communication channel.
+This file is the single source of truth for connection settings, used by:
+- network.py (control)
+- audio.py   (raw audio)
+- camera.py  (MJPEG video stream)
+
+Update `HOST` here to match your network setup.
 """
-# HOST          = "192.168.77.2"  # Raspberry Pi IP
-HOST          = "192.168.0.13"  # Home Network
-CTRL_PORT     = 5000            # JSON command channel (network.py)
-AUDIO_PORT    = 5001            # Raw PCM audio
-CAMERA_PORT   = 5002            # MJPEG stream
+
+# ── IP Address ─────────────────────────────────────────────────────
+# Temporary dual-host setup for switching between locations
+# HOST = "192.168.77.2"    # Raspberry Pi IP (mobile hotspot)
+HOST = "192.168.0.13"      # Raspberry Pi IP (home network)
+
+# ── Port Assignments ───────────────────────────────────────────────
+CTRL_PORT   = 5000  # Control commands (JSON)
+AUDIO_PORT  = 5001  # Raw PCM audio stream
+CAMERA_PORT = 5002  # MJPEG video stream

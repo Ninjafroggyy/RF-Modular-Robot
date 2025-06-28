@@ -1,25 +1,28 @@
 import unittest
-from backend.movement_control import movement
+from unittest.mock import patch
 
+# Import the move function from movement module
+from backend.movement_control.movement import move
 
-""" EXAMPLE UNIT TESTS """
 
 class TestMovement(unittest.TestCase):
 
-    def test_valid_direction(self):
-        """Test sending a valid movement command."""
-        with self.assertLogs(level='INFO') as log:
-            movement.send_movement_command("forward")
-            # This should call network.send_data without error
+    @patch("backend.movement_control.movement.network.send")
+    def test_valid_directions(self, mock_send):
+        # Test each valid direction
+        for direction in ["forward", "backward", "left", "right", "stop"]:
+            with self.subTest(direction=direction):
+                move(direction)
+                mock_send.assert_called_with({"type": "movement", "direction": direction})
+                mock_send.reset_mock()  # Clear call history between subtests
 
-    def test_invalid_direction(self):
-        """Test sending an invalid direction."""
-        with self.assertLogs(level='WARNING') as log:
-            movement.send_movement_command("fly")
-            self.assertIn("Invalid direction", log.output[0])
+    @patch("backend.movement_control.movement.network.send")
+    def test_invalid_direction(self, mock_send):
+        # Send an invalid command
+        move("jump")
+        # Should not call send
+        mock_send.assert_not_called()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
-
-hsahdk
