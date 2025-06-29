@@ -1,3 +1,52 @@
-.venv
-.idea
-__pycache__
+# ─── Python ───────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+env/
+venv/
+
+# ─── IDEs and Editors ─────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*~
+
+# ─── C/C++ Build Files ────────────────────────────────────
+*.o
+*.out
+*.a
+*.so
+*.lo
+*.la
+*.dll
+*.exe
+*.dSYM/
+*.d
+
+# ─── Build Targets ────────────────────────────────────────
+robot_server
+build/
+dist/
+
+# ─── Logs and Dumps ───────────────────────────────────────
+*.log
+*.core
+*.stackdump
+
+# ─── Temporary/Backup Files ───────────────────────────────
+*.tmp
+*.bak
+*.old
+*.orig
+*.save
+
+# ─── Raspberry Pi Specific ────────────────────────────────
+*.img
+*.elf
+*.bin
+
+# ─── Project Specific ─────────────────────────────────────
+unused_code/
+test.jpg
