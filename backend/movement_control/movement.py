@@ -1,24 +1,14 @@
-"""
-    Handles robot movement commands and sends them to the robot via network.
-"""
-from numpy.distutils.exec_command import forward_bytes_to_stdout
-
+""" Provides a helper function for sending movement commands to the robot. """
+# Program file imports
 from backend.network_communication import network
 
+# Set of allowed directions
+ALLOWED = {"forward", "backward", "left", "right", "stop"}
 
-ALLOWED_DIRECTIONS = ["forward", "backward", "left", "right", "stop"]
 
-
-def send_movement_command(direction: str):
-    """
-        Send a movement command to the robot.
-
-    Args:
-        direction (str): One of 'forward', 'backward', 'left', 'right', 'stop'
-    """
-    if direction not in ALLOWED_DIRECTIONS:
-        print(f"[WARN] Invalid direction: {direction}")
+def move(direction: str):
+    """ Send a movement command to the robot, if the direction is valid. """
+    if direction not in ALLOWED:
+        print(f"[WARN] Invalid move: {direction}")
         return
-
-    command = {"type": "movement", "direction": direction}
-    network.send_data(command)
+    network.send({"type": "movement", "direction": direction})

@@ -1,69 +1,72 @@
+// server.c — Unified Pi Server for Camera, Audio, and Movement
+//
+// Launches all backend modules for the robot system using separate threads:
+// - Camera stream server
+// - USB microphone audio stream server
+// - Movement command server
+//
+// Each server runs independently and listens on its designated TCP port.
+
+#include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <unistd.h>
-#include <arpa/inet.h>
+#include "camera.h"
+#include "audio.h"
+#include "movement.h"
 
-#define PORT 5000
-#define BUFFER_SIZE 1024
+// ── Port Configuration ───────────────────────────────────────────────
+#define CAMERA_PORT 5002  // Port used by MJPEG camera stream
+#define AUDIO_PORT  5001  // Port used by USB microphone audio stream
+#define CTRL_PORT   5000  // Port used for control commands (movement)
 
-int main() {
-    int server_fd, client_fd;
-    struct sockaddr_in server_addr, client_addr;
-    char buffer[BUFFER_SIZE];
-    socklen_t addr_len = sizeof(client_addr);
+// ── Thread Wrappers for Each Module ──────────────────────────────────
 
-    // Create socket
-    server_fd = socket(AF_INET, SOCK_STREAM, 0);
-    if (server_fd < 0) {
-        perror("Socket creation failed");
-        return 1;
-    }
+/**
+ * Thread function to start the camera stream server.
+ */
+void* camera_thread(void* _) {
+    start_camera_stream(CAMERA_PORT);
+    return NULL;
+}
 
-    // Bind socket to port
-    server_addr.sin_family = AF_INET;
-    server_addr.sin_addr.s_addr = INADDR_ANY; // Listen on all interfaces
-    server_addr.sin_port = htons(PORT);
+/**
+ * Thread function to start the audio stream server.
+ */
+void* audio_thread(void* _) {
+    start_audio_stream(AUDIO_PORT);
+    return NULL;
+}
 
-    if (bind(server_fd, (struct sockaddr *)&server_addr, sizeof(server_addr)) < 0) {
-        perror("Bind failed");
-        close(server_fd);
-        return 1;
-    }
+/**
+ * Thread function to start the control command server.
+ */
+void* command_thread(void* _) {
+    start_command_server(CTRL_PORT);
+    return NULL;
+}
 
-    // Listen for incoming connections
-    if (listen(server_fd, 1) < 0) {
-        perror("Listen failed");
-        close(server_fd);
-        return 1;
-    }
+// ── Main Startup Function ─────────────────────────────────────────────
 
-    printf("Server listening on port %d...\n", PORT);
+/**
+ * Launches camera, audio, and movement servers on separate threads.
+ * Each server listens on its own port and runs independently.
+ * The function blocks until all threads exit.
+ */
+void start_robot_system() {
+    pthread_t cam_tid, audio_tid, ctrl_tid;
 
-    // Accept connection from client
-    client_fd = accept(server_fd, (struct sockaddr *)&client_addr, &addr_len);
-    if (client_fd < 0) {
-        perror("Accept failed");
-        close(server_fd);
-        return 1;
-    }
+    printf("Server: Launching camera, audio, and control modules...\n");
 
-    printf("Client connected: %s\n", inet_ntoa(client_addr.sin_addr));
+    // Start all server threads
+    pthread_create(&cam_tid, NULL, camera_thread, NULL);
+    pthread_create(&audio_tid, NULL, audio_thread, NULL);
+    pthread_create(&ctrl_tid, NULL, command_thread, NULL);
 
-    // Receive data
-    while (1) {
-        memset(buffer, 0, BUFFER_SIZE);
-        int bytes_received = recv(client_fd, buffer, BUFFER_SIZE - 1, 0);
-        if (bytes_received <= 0) {
-            printf("[!] Client disconnected or error occurred.\n");
-            break;
-        }
+    // Wait for all threads to finish
+    pthread_join(cam_tid, NULL);
+    pthread_join(audio_tid, NULL);
+    pthread_join(ctrl_tid, NULL);
 
-        printf("[Data] Received: %s\n", buffer);
-
-    }
-
-    close(client_fd);
-    close(server_fd);
-    return 0;
+    printf("Server: All modules terminated.\n");
 }

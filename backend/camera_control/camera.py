@@ -1,37 +1,79 @@
-""" Handles receiving and decoding video stream from the Pi. """
+"""
+    Receives MJPEG frames over TCP from the Raspberry Pi’s camera server, decodes them into raw RGB format,
+    and stores the latest frame for retrieval by the GUI frontend.
+"""
+# Library imports
+import io
+import socket
+import threading
+from typing import Optional, Tuple
+from PIL import Image
+# Program file imports
+from backend.config import HOST, CAMERA_PORT
 
-import cv2
-import numpy as np
+# Constants
+_BUFFER      = 4096                          # Socket buffer size
+_JPEG_SOI    = b"\xff\xd8"                   # Start of JPEG image
+_JPEG_EOI    = b"\xff\xd9"                   # End of JPEG image
 
-stream_url = "http://192.168.1.42:8080/video"  # Example MJPEG stream
-cap = None
-
-
-def start_video_stream():
-    """ Start the video stream from the Pi. """
-    global cap
-    cap = cv2.VideoCapture(stream_url)
-    if not cap.isOpened():
-        print("[ERROR] Failed to open video stream.")
-
-
-def stop_video_stream():
-    """Stop the video stream."""
-    global cap
-    if cap:
-        cap.release()
-        cap = None
+# Shared state
+_frame_lock  = threading.Lock()
+_latest: Optional[Tuple[bytes, Tuple[int, int]]] = None  # (raw RGB bytes, (width, height))
 
 
-def get_current_frame():
+def _decode(jpg_bytes: bytes):
+    """ Convert JPEG bytes to raw RGB bytes and return size. """
+    img = Image.open(io.BytesIO(jpg_bytes)).convert("RGB")
+    return img.tobytes(), img.size
+
+
+def camera_stream_loop():
     """
-    Return the latest video frame as an image (for rendering).
-    Returns:
-        frame (numpy.ndarray or None): Current video frame
+        Continuously receive MJPEG frames from the camera server and store the latest one.
+        Runs in a separate thread. Converts each complete JPEG frame to RGB bytes and
+        stores it in a thread-safe global variable for real-time display by the frontend.
     """
-    if not cap:
-        return None
-    ret, frame = cap.read()
-    if not ret:
-        return None
-    return frame
+    global _latest
+    try:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.connect((HOST, CAMERA_PORT))
+        print(f"CAMERA: connected to {HOST}:{CAMERA_PORT}")
+    except Exception as exc:
+        print(f"CAMERA connection failed: {exc}")
+        return
+
+    buf = b""
+    try:
+        while True:
+            chunk = sock.recv(_BUFFER)
+            if not chunk:
+                break
+            buf += chunk
+
+            # Extract complete JPEG images from the stream buffer
+            while True:
+                start = buf.find(_JPEG_SOI)
+                if start == -1:
+                    break
+                end = buf.find(_JPEG_EOI, start)
+                if end == -1:
+                    break
+
+                jpg = buf[start:end + 2]
+                buf = buf[end + 2:]
+
+                try:
+                    rgb, size = _decode(jpg)
+                    with _frame_lock:
+                        _latest = (rgb, size)
+                except Exception:
+                    pass  # Ignore corrupt or partial frames
+    finally:
+        sock.close()
+        print("CAMERA: stream closed")
+
+
+def get_latest():
+    """ Return the most recently received RGB frame. """
+    with _frame_lock:
+        return _latest
