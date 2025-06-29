@@ -1,7 +1,16 @@
+// camera.h — Camera Interface
 #ifndef CAMERA_H
 #define CAMERA_H
 
-void start_camera_video(const char* filename = "video.h264", int duration_ms = 5000);
-void take_still_photo(const char* filename = "image.jpg");
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+// Placeholder for camera stream
+void start_camera_stream(int port);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
