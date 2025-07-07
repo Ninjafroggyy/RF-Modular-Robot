@@ -1,16 +1,20 @@
-// movement.h — GPIO-based Movement Control Interface
-
-
 #ifndef MOVEMENT_H
 #define MOVEMENT_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-// Public movement control functions (stubs for now)
-void move_forward(void);
-void move_backward(void);
-void move_left(void);
-void move_right(void);
-void stop_movement(void);
+void init_motors();
+void cleanup_motors();
+void move_forward();
+void move_backward();
+void move_left();
+void move_right();
+void stop_movement();
 
+#ifdef __cplusplus
+}
+#endif
 
 #endif
