@@ -29,20 +29,20 @@ all: $(TARGET)
 
 
 $(TARGET): $(C_OBJ) $(CPP_OBJ)
-   $(CXX) $(CXXFLAGS) $(C_OBJ) $(CPP_OBJ) -o $@ $(OPENCV_LIBS)
+	$(CXX) $(CXXFLAGS) $(C_OBJ) $(CPP_OBJ) -o $@ $(OPENCV_LIBS)
 
 
 # Compile .c files with gcc
 %.o: %.c
-   $(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 
 # Compile .cpp files with g++ and OpenCV
 %.o: %.cpp
-   $(CXX) $(CXXFLAGS) $(OPENCV_CFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(OPENCV_CFLAGS) -c $< -o $@
 
 
 clean:
-   rm -f *.o $(TARGET)
+	rm -f *.o $(TARGET)
 
 
