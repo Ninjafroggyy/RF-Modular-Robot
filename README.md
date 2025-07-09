@@ -16,7 +16,7 @@ Designed and built by a team of three, this sprint-led build is intended as both
 
 ## Project Goals
 
-- Modular robot chassis using RC car base or chassis kit
+- Modular robot chassis using a robot chassis kit
 - Wireless control via custom Python GUI
 - Real-time video/audio stream from robot to laptop
 - Interchangeable hardware modules (camera, mic, wheels)
@@ -32,26 +32,34 @@ RF_Modular_Robot/
 │
 ├── backend/
 │     ├── audio_output/
-│     │     ├── audio.py
-│     │     ├── audio_mock_data.py
-│     │     └── test_assets/
-│     │           └── test_audio.wav
+│     │     └── audio.py
 │     │
 │     ├── camera_control/
-│     │     ├── camera.py
-│     │     ├── camera_mock_data.py
-│     │     └── test_assets/
-│     │           └── test_frame.jpg
+│     │     └── camera.py
 │     │
 │     ├── movement_control/
-│     │     ├── movement.py
-│     │     └── movement_mock_data.py
+│     │     └── movement.py
 │     │
-│     └── network_communication/
-│           └── network.py
+│     ├── network_communication/
+│     │     └── network.py
+│     │
+│     └── config.py
 │
 ├── frontend/
 │     └── app.py
+│
+├── pi_code/
+│     ├── audio.cpp
+│     ├── audio.h
+│     ├── camera.cpp
+│     ├── camera.h
+│     ├── command.c
+│     ├── command.h
+│     ├── main.c
+│     ├── main.h
+│     ├── movement.c
+│     ├── movement.h
+│     └── server.c
 │
 ├── tests/
 │     ├── test_audio.py
@@ -60,6 +68,7 @@ RF_Modular_Robot/
 │     └── test_network.py
 │
 ├── main.py # Entry point – launches GUI
+├── .gitignore
 └── requirements.txt
 
 ```
@@ -71,8 +80,6 @@ RF_Modular_Robot/
 This project supports development **without hardware** by using:
 
 - Mocked backend behavior (e.g., simulated movement commands)
-- Fake video frames via local images
-- Test `.wav` audio clips for audio playback simulation
 - Unit testing with `unittest`
 
 To run all unit tests:
@@ -94,7 +101,7 @@ python -m unittest discover -s tests
 
 ## Sprint Scope
 
-This is a **5-day sprint project**, with a hard deadline.
+This is a **6-day sprint project**, with a hard deadline.
 
 > The aim is a working prototype that demonstrates **modularity and communication**.  
 > If a task isn’t completed in time, we move forward — progress over perfection
