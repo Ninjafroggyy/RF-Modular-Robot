@@ -1,7 +1,7 @@
 """ Defines the Raspberry Pi IP address and the ports used for each communication channel. """
 # ── IP Address ─────────────────────────────────────────────────────
 # Temporary dual-host setup for switching between locations
-HOST = "192.168.77.2"    # Raspberry Pi IP (mobile hotspot)
+HOST = "192.168.47.2"    # Raspberry Pi IP (mobile hotspot)
 # HOST = "192.168.0.13"      # Raspberry Pi IP (home network)
 
 # ── Port Assignments ───────────────────────────────────────────────
