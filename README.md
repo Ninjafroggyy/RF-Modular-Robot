@@ -79,7 +79,7 @@ RF_Modular_Robot/
 
 This project supports development **without hardware** by using:
 
-- Mocked backend behavior (e.g., simulated movement commands)
+- Mocked backend behaviour (e.g., simulated movement commands)
 - Unit testing with `unittest`
 
 To run all unit tests:
